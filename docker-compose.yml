@@ -7,6 +7,7 @@ networks:
 services:
   nginx:
     image: nginx:latest
+    container_name: nginx
     ports:
       - '80:80'
     volumes:
@@ -18,12 +19,23 @@ services:
       - laravel
 
   php:
-#    image: php:8.2-fpm
     build:
       context: .
     container_name: php
+    ports:
+      ["9000:9000", "9003:9003"]
+    expose:
+      ["9000", "9003"]
     volumes:
       - ./src:/var/www/html
+    networks:
+      - laravel
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    expose:
+      - "6379"
     networks:
       - laravel
 
@@ -56,6 +68,8 @@ services:
       - ./src:/var/www/html
     ports:
       - "8000:8000"
+    expose:
+      - "8000"
     working_dir: /var/www/html
     entrypoint: ['php', 'artisan']
     networks:
@@ -68,5 +82,9 @@ services:
       - ./src:/var/www/html
     working_dir: /var/www/html
     entrypoint: ['npm']
+    ports:
+      - "5173:5173"
+    expose:
+      - "5173"
     networks:
       - laravel
