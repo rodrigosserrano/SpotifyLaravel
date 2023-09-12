@@ -60,21 +60,6 @@ services:
     networks:
       - laravel
 
-  artisan:
-    build:
-      context: .
-    container_name: artisan
-    volumes:
-      - ./src:/var/www/html
-    ports:
-      - "8000:8000"
-    expose:
-      - "8000"
-    working_dir: /var/www/html
-    entrypoint: ['php', 'artisan']
-    networks:
-      - laravel
-
   npm:
     image: node:lts-alpine
     container_name: npm
