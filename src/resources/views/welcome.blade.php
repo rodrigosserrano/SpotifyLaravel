@@ -9,6 +9,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
     <body class="antialiased">
+        <h1>Test</h1>
         <div id="app">
             <example-counter></example-counter>
         </div>
