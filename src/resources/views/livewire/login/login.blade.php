@@ -11,6 +11,6 @@
             <span class="icon-google p-3"></span>Continuar com o google</button>
     </div>
     <hr class="d-flex m-auto m-lg-5">
-    <livewire:form-login/>
+    <livewire:login-form-component/>
 
 </div>

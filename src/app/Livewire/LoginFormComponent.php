@@ -10,7 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 
-class FormLogin extends Component
+class LoginFormComponent extends Component
 {
 
     public LoginForm $form;
@@ -22,6 +22,6 @@ class FormLogin extends Component
 
     public function render(): View|Application|Factory|ApplicationContract
     {
-        return view('livewire.login.form-login');
+        return view('livewire.login.login-form-component');
     }
 }
