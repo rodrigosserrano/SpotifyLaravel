@@ -1,2 +1,60 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "bootstrap-icons/font/bootstrap-icons.css";
+@font-face {
+    font-family: "CircularSpotifyTxT-Book";
+    src: url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.eot");
+    src: url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.svg#CircularSpotifyTxT-Book")format("svg");
+}
+
+* {
+    font-family: CircularSpotifyTxT-Book, serif;
+}
+
+.signin-button {
+    box-sizing: border-box;
+    font-size: 1rem;
+    font-weight: 700;
+    font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
+    background-color: #fff;
+    border: 0px;
+    border-radius: 500px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    touch-action: manipulation;
+    transition-duration: 33ms;
+    transition-property: background-color, border-color, color, box-shadow, filter, transform;
+    user-select: none;
+    vertical-align: middle;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-inline-size: 0px;
+    align-self: center;
+}
+
+.icon-google {
+    background: url("https://accounts.scdn.co/sso/images/new-google-icon.72fd940a229bc94cf9484a3320b3dccb.svg") center center no-repeat;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.btn-spty-transparent {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #767676;
+    border-radius: 500px;
+}
+
+.btn-spty-transparent:hover {
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 500px;
+}
