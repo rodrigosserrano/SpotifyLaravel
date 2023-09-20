@@ -17,7 +17,7 @@ class LoginFormComponent extends Component
 {
     public LoginForm $form;
 
-    public function submitFormLogin()
+    public function submitFormLogin(): void
     {
         $this->validate();
         $user = User::where('email', $this->form->email)->first();
