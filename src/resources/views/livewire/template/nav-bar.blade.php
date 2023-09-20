@@ -11,33 +11,34 @@
             @if(!Route::is('login'))
                 <div class="d-flex collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-1 mb-lg-0 d-flex">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" aria-current="page" href="#">Premium</a>
+                        <li class="nav-item mt-3 mb-3">
+                            <a class="nav-link text-white sptf-effect-text" aria-current="page" href="#">Premium</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Suporte</a>
+                        <li class="nav-item mt-3 mb-3">
+                            <a class="nav-link text-white sptf-effect-text" href="#">Suporte</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">Baixar</a>
+                        <li class="nav-item mt-3 mb-3">
+                            <a class="nav-link text-white sptf-effect-text" href="#">Baixar</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">|</a>
+                        <li class="nav-item mt-3 mb-3">
+                            <a class="nav-link text-white disabled" href="#">|</a>
                         </li>
                         @auth
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle text-white sptf-effect-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <img
                                         src="{{ asset('assets/img/icon-profile.svg') }}"
-                                        width="20"
+                                        class="mt-3 mb-3"
+                                        width="25"
                                     > Perfil
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item" href="#">Conta</a></li>
-                                    <li><a class="dropdown-item" href="#">Sair</a></li>
+                                    <li><a class="dropdown-item" href="{{ auth()->logout() }}">Sair</a></li>
                                 </ul>
                             </li>
                         @else
-                            <a class="nav-link text-white" href="#">Inscrever-se</a>
+                            <a class="nav-link text-white mt-3 mb-3 sptf-effect-text" href="#">Inscrever-se</a>
                             <a class="nav-link signin-button" href="{{ route('login') }}">Entrar</a>
                         @endauth
                     </ul>

@@ -1,3 +1,15 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@font-face {
+    font-family: "CircularSpotifyTxT-Book";
+    src: url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.eot");
+    src: url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/21a1184148d11d67c19f5076b909d63b.svg#CircularSpotifyTxT-Book")format("svg");
+}
+
 html {
     height: 100%;
 }
@@ -5,7 +17,6 @@ html {
 body {
     height: 100%;
     margin: 0;
-    /*background: linear-gradient(rgba(255, 255, 255, 0.1) 0%, rgb(0, 0, 0) 100%) no-repeat;*/
 
     background: linear-gradient(rgb(40, 40, 40) 0%, rgb(0, 0, 0) 100%) no-repeat;
 }
@@ -32,10 +43,16 @@ body {
     background-color: #1ed760;
     color: #000;
     transform: scale(1.05);
+}
 
+.button-sptf:focus {
+    background-color: #1ed760;
+    color: #000;
+    /*transform: scale(1.05);*/
 }
 
 .input-sptf {
+    color: white;
     background-color: #1a1d20;
     appearance: none;
     background-image: none;
@@ -55,13 +72,16 @@ body {
     min-block-size: 48px;
     box-shadow: inset 0 0 0 1px #878787;
 }
+
 .input-sptf:hover{
+    color: white;
     border-color: #fff;
     border-width: 4px;
     background-color:rgba(0,0,0,0.7);
 }
 
 .input-sptf:focus{
+    color: white;
     border-color: #fff;
     border-width: 4px;
     background-color: rgba(0,0,0,0.7);
@@ -69,6 +89,19 @@ body {
 .input-sptf::placeholder {
     color: #a7a7a7;
 }
+
+.check-sptf:checked {
+    background-color: #1ed760 !important;
+    border-color: transparent !important;
+    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e") !important;
+}
+
+.check-sptf {
+    background-color: #717171 !important;
+    border-color: transparent !important;
+    --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e") !important;
+}
+
 
 hr {
     color: #ababab;
