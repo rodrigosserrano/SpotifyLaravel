@@ -34,7 +34,7 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li><a class="dropdown-item" href="#">Conta</a></li>
-                                    <li><a class="dropdown-item" href="{{ auth()->logout() }}">Sair</a></li>
+                                    <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                                 </ul>
                             </li>
                         @else

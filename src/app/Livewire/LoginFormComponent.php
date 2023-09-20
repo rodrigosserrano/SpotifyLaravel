@@ -32,7 +32,7 @@ class LoginFormComponent extends Component
 
         Auth::login($user, $this->form->remember);
 
-        $this->redirect('/');
+        $this->redirect(route('home'));
     }
 
     public function render(): View|Application|Factory|ApplicationContract

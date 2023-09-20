@@ -1,6 +1,11 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use \App\Livewire\{
+    Home,
+    Login
+};
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Livewire\Home::class)->name('home');
-Route::get('/login', \App\Livewire\Login::class)->name('login');
+Route::get('/', Home::class)->name('home');
+Route::get('/login', Login::class)->name('login');
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->route('home');
+})->name('logout');
 
