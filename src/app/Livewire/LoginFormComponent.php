@@ -2,10 +2,9 @@
 
 namespace App\Livewire;
 
+use App\Facades\Repository;
 use App\Livewire\Forms\LoginForm;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\Validator;
 use Livewire\Component;
 use Illuminate\Contracts\Foundation\Application as ApplicationContract;
@@ -20,12 +19,12 @@ class LoginFormComponent extends Component
     public function submitFormLogin(): void
     {
         $this->validate();
-        $user = User::where('email', $this->form->email)->first();
+        $user = Repository::users()->getByEmail($this->form->email);
 
         $this->withValidator(fn (Validator $validator) =>
             $validator->after(function ($validator) use ($user) {
                 if (!$user) {
-                    $validator->errors()->add('user', 'Usuário ou senha inválidos');
+                    $validator->errors()->add('user', 'Usuário ou senha inválido');
                 }
             })
         )->validate();

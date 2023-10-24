@@ -2,10 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use \App\Livewire\{
-    Home,
-    Login
-};
+use App\Livewire\{Home, Login, Playlist};
 
 /*
 |--------------------------------------------------------------------------
@@ -24,4 +21,5 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect()->route('home');
 })->name('logout');
+Route::get('/playlist', Playlist::class)->name('playlist');
 

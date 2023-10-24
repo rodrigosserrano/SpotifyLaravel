@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Repositories\LoadRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -11,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        $this->app->bind('LoadRepository', fn ($app) => new LoadRepository());
     }
 
     /**

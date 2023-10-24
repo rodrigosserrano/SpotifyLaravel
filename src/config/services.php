@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Third Party Services
+    | Third Party Auth
     |--------------------------------------------------------------------------
     |
     | This file is for storing the credentials for third party services such
@@ -30,5 +30,14 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+
+    'spotify' => [
+        'auth' => [
+            'url' => env('SPOTIFY_TOKEN_URL'),
+            'client_id' => env('SPOTIFY_CLIENT_ID'),
+            'client_secret' => env('SPOTIFY_CLIENT_SECRET'),
+        ],
+        'base_url' => env('SPOTIFY_BASE_URL'),
+    ]
 
 ];

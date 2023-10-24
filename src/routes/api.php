@@ -17,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/test', fn () => app(\App\ThirdParty\Services\Soptify\Albums::class)->getAlbums('4aawyAB9vmqN3uQ7FjRGTy'));

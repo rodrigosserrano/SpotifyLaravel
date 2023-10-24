@@ -17,9 +17,11 @@
                         <li class="nav-item mt-3 mb-3">
                             <a class="nav-link text-white sptf-effect-text" href="#">Suporte</a>
                         </li>
-                        <li class="nav-item mt-3 mb-3">
-                            <a class="nav-link text-white sptf-effect-text" href="#">Baixar</a>
-                        </li>
+                        @auth
+                            <li class="nav-item mt-3 mb-3">
+                                <a class="nav-link text-white sptf-effect-text" href="{{ route('playlist') }}">Minha Playlist</a>
+                            </li>
+                        @endauth
                         <li class="nav-item mt-3 mb-3">
                             <a class="nav-link text-white disabled" href="#">|</a>
                         </li>

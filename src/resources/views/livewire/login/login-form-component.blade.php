@@ -9,7 +9,7 @@
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label text-white fw-bold">Email</label>
             <input
-                wire:model="form.email"
+                wire:model.live="form.email"
                 type="email"
                 class="form-control input-sptf"
                 placeholder="Email"
@@ -23,7 +23,7 @@
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label text-white fw-bold">Senha</label>
             <input
-                wire:model="form.password"
+                wire:model.live="form.password"
                 type="password"
                 placeholder="Senha"
                 class="form-control input-sptf"
@@ -35,7 +35,7 @@
         </div>
 
         <div class="form-check form-switch mt-4 mb-4">
-            <input wire:model="form.remember" class="form-check-input check-sptf" type="checkbox" id="flexSwitchCheckChecked" checked>
+            <input wire:model.live="form.remember" class="form-check-input check-sptf" type="checkbox" id="flexSwitchCheckChecked" checked>
             <label class="form-check-label text-white" for="flexSwitchCheckChecked">Lembrar de mim</label>
         </div>
 
