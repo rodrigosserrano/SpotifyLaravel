@@ -14,12 +14,21 @@
     font-family: CircularSpotifyTxT-Book, serif;
 }
 
+.bg-smc {
+    background-color: #0c343d !important;
+}
+
+.bg-smc-form {
+    background: linear-gradient(160deg, rgba(222, 222, 222, 0.64) 0%, rgba(255, 255, 255, 0.51) 35%, rgba(109, 109, 109, 0.44) 100%);
+    border-radius: 10px;
+}
+
 .signin-button {
     box-sizing: border-box;
     font-size: 1rem;
     font-weight: 700;
     font-family: var(--font-family,CircularSp,CircularSp-Arab,CircularSp-Hebr,CircularSp-Cyrl,CircularSp-Grek,CircularSp-Deva,var(--fallback-fonts,sans-serif));
-    background-color: #fff;
+    background-color: #f7be4b;
     border: 0px;
     border-radius: 500px;
     cursor: pointer;
@@ -47,18 +56,18 @@
 
 .btn-spty-transparent {
     background-color: transparent !important;
-    color: #fff !important;
-    border: 1px solid #767676 !important;
-    border-radius: 500px !important;
+    color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+    border-radius: 5px !important;
 }
 
 .btn-spty-transparent:hover {
     background-color: transparent !important;
-    color: #fff !important;
-    border: 1px solid #e1e1e1 !important;
-    border-radius: 500px !important;
+    color: #fde498 !important;
+    border: 1px solid #fde498 !important;
+    border-radius: 5px !important;
 }
 
 .sptf-effect-text:hover {
-    color: #1ed760 !important;
+    color: #f7be4b !important;
 }

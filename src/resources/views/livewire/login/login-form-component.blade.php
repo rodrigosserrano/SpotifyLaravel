@@ -7,7 +7,7 @@
         </div>
         @endif
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label text-white fw-bold">Email</label>
+            <label for="exampleInputEmail1" class="form-label fw-bold text-white">Email</label>
             <input
                 wire:model.live="form.email"
                 type="email"
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label text-white fw-bold">Senha</label>
+            <label for="exampleInputPassword1" class="form-label fw-bold text-white">Senha</label>
             <input
                 wire:model.live="form.password"
                 type="password"

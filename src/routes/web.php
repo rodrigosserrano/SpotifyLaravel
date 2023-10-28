@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Livewire\{Home, Login, Playlist};
@@ -21,5 +22,7 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect()->route('home');
 })->name('logout');
-Route::get('/playlist', Playlist::class)->name('playlist');
+
+Route::get('oauth/google', [LoginController::class, 'redirectToGoogle']);
+Route::get('oauth/google/callback', [LoginController::class, 'handleGoogleCallback']);
 

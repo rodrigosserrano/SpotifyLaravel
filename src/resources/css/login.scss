@@ -18,13 +18,13 @@ body {
     height: 100%;
     margin: 0;
 
-    background: linear-gradient(rgb(40, 40, 40) 0%, rgb(0, 0, 0) 100%) no-repeat;
+    background: #06242b;
 }
 
 .button-sptf {
     box-sizing: border-box;
     position: relative;
-    background-color: #1ed760;
+    background-color: #f7be4b;
     color: #000;
     display: flex;
     border-radius: 500px;
@@ -40,20 +40,24 @@ body {
 }
 
 .button-sptf:hover {
-    background-color: #1ed760;
+    background-color: #f7be4b;
     color: #000;
     transform: scale(1.05);
 }
 
 .button-sptf:focus {
-    background-color: #1ed760;
+    background-color: #f7be4b;
     color: #000;
-    /*transform: scale(1.05);*/
+}
+
+.button-sptf:not(:disabled):not(:disabled):active {
+    background-color: #f7be4b;
+    color: #000;
 }
 
 .input-sptf {
-    color: white;
-    background-color: #1a1d20;
+    color: black;
+    background-color: #d5d5d5;
     appearance: none;
     background-image: none;
     border: 0px;
@@ -74,37 +78,37 @@ body {
 }
 
 .input-sptf:hover{
-    color: white;
-    border-color: #fff;
+    color: #d0d0d0;
+    border-color: black;
     border-width: 4px;
-    background-color:rgba(0,0,0,0.7);
+    background-color:rgba(218, 218, 218, 0.7);
 }
 
 .input-sptf:focus{
-    color: white;
-    border-color: #fff;
+    color: #828282;
+    border-color: #b0b0b0;
     border-width: 4px;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(218, 218, 218, 0.7);
 }
 .input-sptf::placeholder {
-    color: #a7a7a7;
+    color: #d1d1d1;
 }
 
 .check-sptf:checked {
-    background-color: #1ed760 !important;
+    background-color: #f7be4b !important;
     border-color: transparent !important;
     --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e") !important;
 }
 
 .check-sptf {
-    background-color: #717171 !important;
+    background-color: #a0a0a0 !important;
     border-color: transparent !important;
     --bs-form-switch-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='3' fill='%23000'/%3e%3c/svg%3e") !important;
 }
 
 
 hr {
-    color: #ababab;
+    color: #ffffff;
 }
 
 .form-login {
