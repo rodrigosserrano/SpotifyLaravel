@@ -19,7 +19,7 @@ Edit this database block env, with the same data as root `.env` and set a databa
 
 Build project
 ```bash
-docker compose -p spotifylaravel up -d --build
+docker compose up -d --build
 ```
 
 Install dependencies composer
