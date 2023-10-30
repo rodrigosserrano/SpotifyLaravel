@@ -3,9 +3,10 @@
 namespace {{ namespace }};
 
 use App\Illuminate\Custom\Database\Eloquent\Factories\HasFactory;
+use App\Illuminate\Custom\Database\Eloquent\Concerns\HasUuid;
 use Illuminate\Database\Eloquent\Model;
 
 class {{ class }} extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuid;
 }

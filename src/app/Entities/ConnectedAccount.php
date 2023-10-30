@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Illuminate\Custom\Database\Eloquent\Concerns\HasUuid;
 use App\Illuminate\Custom\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Model;
@@ -9,7 +10,7 @@ use Illuminate\Support\Str;
 
 class ConnectedAccount extends Model
 {
-    use HasFactory;
+    use HasFactory, HasUuid;
 
     protected $fillable = [
         'uuid',

@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -27,6 +28,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('has_password')->default(true);
 
+            $table->foreignId('user_status_id')->references('id')->on('user_status');
             $table->foreignId('bills_id')->nullable()->references('id')->on('bills');
             $table->foreignId('connected_account_id')->nullable()->references('id')->on('connected_accounts');
         });
