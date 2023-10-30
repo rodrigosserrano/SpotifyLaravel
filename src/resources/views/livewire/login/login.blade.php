@@ -20,6 +20,6 @@
     <hr class="d-flex m-auto m-lg-5">
 
     <div class="w-100 text-center mt-5">
-        <p class="d-inline" style="color: #bababa">Não tem uma conta? </p><a href="#" class="text-white sptf-effect-text">Inscrever-se no Spotify</a>
+        <p class="d-inline" style="color: #bababa">Não tem uma conta? </p><a href="#" class="text-white sptf-effect-text">Inscrever-se no Save My Cash</a>
     </div>
 </div>

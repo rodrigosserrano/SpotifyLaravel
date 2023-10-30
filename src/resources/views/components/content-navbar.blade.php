@@ -10,15 +10,29 @@
             <a class="nav-link text-white disabled" href="#">|</a>
         </li>
         @auth
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white sptf-effect-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img
-                        src="{{ auth()->user()->picture_link }}"
-                        class="mt-3 mb-3 rounded-5"
-                        width="25"
-                    > Perfil
+            <li class="nav-item dropdown mt-3 mb-3">
+                <a class="nav-link dropdown-toggle text-white sptf-effect-text fw-bold" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Perfil
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
+                    <li>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <img
+                                    src="{{ auth()->user()->picture_link }}"
+                                    class="rounded-5"
+                                    width="65"
+                                >
+                            </div>
+
+                            <div class="col-md-12 text-center">
+                                <a class="nav-link text-black disabled text-center display-3" href="#">
+                                    Olá {{ auth()->user()->first_name }}
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    <hr>
                     <li><a class="dropdown-item" href="#">Conta</a></li>
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                 </ul>
