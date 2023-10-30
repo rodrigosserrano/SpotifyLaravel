@@ -2,7 +2,8 @@
 
 namespace Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Entities\ConnectedAccount;
+use App\Illuminate\Custom\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
@@ -19,10 +20,17 @@ class UserFactory extends Factory
     public function definition(): array
     {
         return [
+            'uuid' => fake()->uuid(),
             'name' => fake()->name(),
+            'cpf' => fake()->cpf(false),
+            'birth_date' => fake()->date(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
-            'password' => Hash::make('password'),
+            'email_verified' => true,
+            'picture_link' => fake()->imageUrl(category: 'person'),
+            'password' => Hash::make(''),
+            'has_password' => false,
+            'connected_account_id' => ConnectedAccount::factory(),
             'remember_token' => Str::random(10),
         ];
     }
@@ -34,6 +42,17 @@ class UserFactory extends Factory
     {
         return $this->state(fn (array $attributes) => [
             'email_verified_at' => null,
+            'email_verified'    => true,
+        ]);
+    }
+
+    public function withoutConnectedAccount(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'email_verified_at' => now(),
+            'email_verified' => true,
+            'password' => Hash::make('password'),
+            'has_password' => true,
         ]);
     }
 }

@@ -13,8 +13,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white sptf-effect-text" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     <img
-                        src="{{ asset('assets/img/icon-profile.svg') }}"
-                        class="mt-3 mb-3"
+                        src="{{ auth()->user()->picture_link }}"
+                        class="mt-3 mb-3 rounded-5"
                         width="25"
                     > Perfil
                 </a>

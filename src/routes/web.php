@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\Auth\GoogleSocialite;
+use App\Livewire\{Home, Login, Playlist};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use App\Livewire\{Home, Login, Playlist};
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +23,6 @@ Route::get('/logout', function () {
     return redirect()->route('home');
 })->name('logout');
 
-Route::get('oauth/google', [LoginController::class, 'redirectToGoogle']);
-Route::get('oauth/google/callback', [LoginController::class, 'handleGoogleCallback']);
+Route::get('oauth/google', [GoogleSocialite::class, 'redirectToGoogle']);
+Route::get('oauth/google/callback', [GoogleSocialite::class, 'handleGoogleCallback']);
 
