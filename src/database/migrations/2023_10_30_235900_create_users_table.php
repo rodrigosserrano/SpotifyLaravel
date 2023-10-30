@@ -18,7 +18,8 @@ return new class extends Migration
             $table->boolean('deleted')->default(false);
             $table->timestamps();
             $table->rememberToken();
-            $table->string('name');
+            $table->string('first_name')->index();
+            $table->string('last_name')->index();
             $table->string('email')->unique();
             $table->string('cpf', 11)->nullable()->unique();
             $table->date('birth_date')->nullable();
@@ -28,7 +29,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('has_password')->default(true);
 
-            $table->foreignId('user_status_id')->references('id')->on('user_status');
+            $table->foreignId('user_status_id')->default(\App\Enums\UserStatusEnum::Pending->value)->references('id')->on('user_status');
             $table->foreignId('bills_id')->nullable()->references('id')->on('bills');
             $table->foreignId('connected_account_id')->nullable()->references('id')->on('connected_accounts');
         });

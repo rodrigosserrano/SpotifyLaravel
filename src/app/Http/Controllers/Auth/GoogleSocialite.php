@@ -39,13 +39,12 @@ class GoogleSocialite extends Controller
                 return redirect('/');
             } else {
                 $connectedAccount = ConnectedAccount::create([
-                    'uuid' => Str::uuid()->toString(),
                     'google_id' => $userGoogle->getId(),
                 ]);
 
                 $newUser = User::create([
-                    'uuid' => Str::uuid()->toString(),
-                    'name' => $userGoogle->getName(),
+                    'first_name' => $userGoogle->user['given_name'],
+                    'last_name' => $userGoogle->user['family_name'],
                     'email' => $userGoogle->getEmail(),
                     'picture_link' => $userGoogle->getAvatar(),
                     'email_verified' => $userGoogle->user['email_verified'],
