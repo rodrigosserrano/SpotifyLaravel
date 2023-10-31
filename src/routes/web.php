@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\Auth\GoogleSocialite;
+use App\Http\Controllers\Auth\GoogleController;
 use App\Livewire\{Home, Login, Playlist};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,6 @@ Route::get('/logout', function () {
     Auth::logout();
     return redirect()->route('home');
 })->name('logout');
-
-Route::get('oauth/google', [GoogleSocialite::class, 'redirectToGoogle']);
-Route::get('oauth/google/callback', [GoogleSocialite::class, 'handleGoogleCallback']);
+Route::get('oauth/google', fn () => Socialite::driver('google')->redirect());
+Route::get('oauth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
 
