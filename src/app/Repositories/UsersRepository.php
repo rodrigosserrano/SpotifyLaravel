@@ -11,4 +11,9 @@ final class UsersRepository
     {
         return User::where('email', $email)->first();
     }
+
+    public function getByGoogleAccountId(string $googleId): ?User
+    {
+        return User::whereRelation('connectedAccounts', 'google_id', $googleId)->first();
+    }
 }
