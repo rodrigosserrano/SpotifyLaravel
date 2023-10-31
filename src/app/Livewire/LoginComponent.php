@@ -2,8 +2,9 @@
 
 namespace App\Livewire;
 
-use App\Facades\Repository;
+use App\Dto\LoginDTO;
 use App\Livewire\Forms\LoginForm;
+use App\Services\Auth\LoginService;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Validator;
 use Livewire\Component;
@@ -12,30 +13,26 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 
-class LoginFormComponent extends Component
+class LoginComponent extends Component
 {
     public LoginForm $form;
-
     public function submitFormLogin(): void
     {
         $this->validate();
-        $user = Repository::users()->getByEmail($this->form->email);
+        // TODO: Validate not working, fix it
+        $validator = (new LoginService())->execute(
+            new LoginDTO(
+                email: $this->form->email,
+                remember: $this->form->remember,
+            )
+        );
 
-        $this->withValidator(fn (Validator $validator) =>
-            $validator->after(function ($validator) use ($user) {
-                if (!$user) {
-                    $validator->errors()->add('user', 'Usuário ou senha inválido');
-                }
-            })
-        )->validate();
-
-        Auth::login($user, $this->form->remember);
-
+        $this->withValidator($validator)->validate();
         $this->redirect(route('home'));
     }
 
     public function render(): View|Application|Factory|ApplicationContract
     {
-        return view('livewire.login.login-form-component');
+        return view('livewire.login.login-component');
     }
 }
