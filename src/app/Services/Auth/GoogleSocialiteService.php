@@ -3,12 +3,11 @@
 namespace App\Services\Auth;
 
 use App\Dto\IDto;
-use App\Models\User\CreateWithSocialiteStrategy;
-use App\Models\User\GetWithSocialiteStrategy;
-use App\Models\User\UserContext;
+use App\Models\User\LoginSocialite\CreateWithSocialite;
+use App\Models\User\LoginSocialite\GetWithSocialite;
+use App\Models\User\LoginSocialite\User;
 use App\Services\IService;
 use Exception;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Facades\Socialite;
 
@@ -18,17 +17,15 @@ class GoogleSocialiteService implements IService
     {
         try {
             $userGoogle = Socialite::driver('google')->user();
-            $userContext = new UserContext();
+            $userContext = new User();
 
-            $userContext->setStrategy(new GetWithSocialiteStrategy());
-            $user = $userContext->executeStrategy($userGoogle);
-
-            if (!$user) {
-                $userContext->setStrategy(new CreateWithSocialiteStrategy());
-                $user = $userContext->executeStrategy($userGoogle);
+            try {
+                $userContext->setStrategy(new GetWithSocialite());
+                $userContext->login($userGoogle);
+            } catch (Exception $e) {
+                $userContext->setStrategy(new CreateWithSocialite());
+                $userContext->login($userGoogle);
             }
-
-            Auth::login($user);
             return true;
         } catch (Exception $e) {
             Log::error('Error authenticating with Google Socialite: ' . $e->getMessage());
