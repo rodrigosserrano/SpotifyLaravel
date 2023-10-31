@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\GoogleSocialite;
-use App\Livewire\{Home, Login, Playlist};
+use App\Livewire\{Account, Home, Login};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -16,7 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Home::class)->name('home');
+//Route::get('/', Home::class)->name('home');
+Route::get('/', Account::class);
 Route::get('/login', Login::class)->name('login');
 Route::get('/logout', function () {
     Auth::logout();
