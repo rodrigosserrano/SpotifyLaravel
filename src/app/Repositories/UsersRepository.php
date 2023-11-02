@@ -11,4 +11,9 @@ final class UsersRepository
     {
         return User::where('email', $email)->first();
     }
+
+    public function getByProviderAccountId(string $providerId): ?User
+    {
+        return User::whereRelation('connectedAccounts', 'provider_id', $providerId)->first();
+    }
 }

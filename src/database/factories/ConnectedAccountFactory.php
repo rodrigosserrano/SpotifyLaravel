@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\ProviderSocialiteEnum;
 use App\Illuminate\Custom\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,8 @@ class ConnectedAccountFactory extends Factory
     {
         return [
             'uuid' => fake()->uuid(),
-            'google_id' => fake()->numerify('#####################'),
+            'provider' => ProviderSocialiteEnum::Google->value,
+            'provider_id' => fake()->numerify('#####################'),
         ];
     }
 }
