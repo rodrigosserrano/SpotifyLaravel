@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('name');
         });
 
-        UserStatus::create(['id' => 1, 'name' => 'Complete', 'uuid' => '4762f02c-4f16-434e-a894-0bf847a62e63']);
-        UserStatus::create(['id' => 2, 'name' => 'Pending', 'uuid' => 'd6d59b54-ec62-43cb-a4ff-bbfae1079dbf']);
+        UserStatus::create(['id' => 1, 'name' => 'Completo', 'uuid' => '4762f02c-4f16-434e-a894-0bf847a62e63']);
+        UserStatus::create(['id' => 2, 'name' => 'Pendente', 'uuid' => 'd6d59b54-ec62-43cb-a4ff-bbfae1079dbf']);
     }
 
     /**

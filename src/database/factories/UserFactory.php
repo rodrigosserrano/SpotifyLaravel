@@ -27,7 +27,7 @@ class UserFactory extends Factory
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'email_verified' => true,
-            'picture_link' => fake()->imageUrl(category: 'person'),
+            'picture_link' => 'https://icon-library.com/images/default-user-icon/default-user-icon-20.jpg',
             'password' => Hash::make(''),
             'has_password' => false,
             'connected_account_id' => ConnectedAccount::factory(),

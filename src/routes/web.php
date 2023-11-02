@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\GoogleController;
-use App\Livewire\{Home, Login, Account};
+use App\Livewire\{Account\Account, Home, Login\Login};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -17,8 +17,11 @@ use Laravel\Socialite\Facades\Socialite;
 |
 */
 
-//Route::get('/', Home::class)->name('home');
-Route::get('/', Account::class);
+Route::middleware(['auth'])->group(function () {
+    Route::get('/account', Account::class)->name('account');
+});
+
+Route::get('/', Home::class)->name('home');
 Route::get('/login', Login::class)->name('login');
 Route::get('/logout', function () {
     Auth::logout();

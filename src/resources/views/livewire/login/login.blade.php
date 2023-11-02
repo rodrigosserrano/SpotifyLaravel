@@ -15,7 +15,7 @@
     </div>
     <hr class="d-flex m-auto m-lg-5">
 
-    <livewire:login-component/>
+    <livewire:login.login-component/>
 
     <hr class="d-flex m-auto m-lg-5">
 

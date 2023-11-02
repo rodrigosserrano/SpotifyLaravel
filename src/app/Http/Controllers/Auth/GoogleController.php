@@ -13,7 +13,7 @@ class GoogleController extends Controller
     public function handleGoogleCallback(): RedirectResponse
     {
         if ((new GoogleSocialiteService())->execute()) {
-            return redirect()->route('home');
+            return redirect()->route('account');
         }
         return redirect()->route('login');
     }

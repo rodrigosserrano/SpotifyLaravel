@@ -20,7 +20,7 @@
                             <div class="col-lg-12 text-center">
                                 <img
                                     src="{{ auth()->user()->picture_link }}"
-                                    class="rounded-5"
+                                    class="rounded-circle"
                                     width="65"
                                 >
                             </div>

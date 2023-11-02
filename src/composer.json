@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.9",
         "laravel/tinker": "^2.8",
+        "laravellegends/pt-br-validator": "^10.0",
         "livewire/livewire": "^3.0",
         "predis/predis": "^2.2"
     },

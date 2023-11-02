@@ -2,7 +2,7 @@
 namespace Tests\Feature;
 
 use App\Entities\User;
-use App\Livewire\LoginComponent;
+use App\Livewire\Login\LoginComponent;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 
