@@ -2,8 +2,9 @@
 
 namespace App\Services\Auth;
 
-use App\Dto\IDto;
+use App\Dto\IDTO;
 use App\Dto\LoginDTO;
+use App\Entities\User;
 use App\Facades\Repository;
 use App\Services\IService;
 use Illuminate\Support\Facades\Auth;
@@ -13,19 +14,17 @@ class LoginService implements IService
 {
     /**
      * @param ?LoginDTO $data
-     * @return callable
+     * @return bool
      */
-    public function execute(?IDto $data): callable
+    public function execute(?IDTO $data): bool
     {
-        $user = Repository::users()->getByEmail($data->email);
-
-        return fn (Validator $validator) =>
-            $validator->after(function ($validator) use ($user, $data) {
-                if (!$user) {
-                    $validator->errors()->add('user', 'Usuário ou senha inválido');
-                } else {
-                    Auth::login($user, $data->remember);
-                }
-            });
+        return Auth::attemptWhen(
+            credentials: $data->getCredentials(),
+            callbacks: [
+                fn (User $user) => !$user->deleted,
+                fn (User $user) => $user->has_password
+            ],
+            remember: $data->remember,
+        );
     }
 }

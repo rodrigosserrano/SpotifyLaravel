@@ -2,7 +2,7 @@
 
 namespace App\Services\Auth;
 
-use App\Dto\IDto;
+use App\Dto\IDTO;
 use App\Models\User\LoginSocialite\CreateWithSocialite;
 use App\Models\User\LoginSocialite\GetWithSocialite;
 use App\Models\User\LoginSocialite\User;
@@ -13,7 +13,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class GoogleSocialiteService implements IService
 {
-    public function execute(?IDto $data = null): bool
+    public function execute(?IDTO $data = null): bool
     {
         try {
             $userGoogle = Socialite::driver('google')->user();

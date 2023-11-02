@@ -19,15 +19,21 @@ class LoginComponent extends Component
     public function submitFormLogin(): void
     {
         $this->validate();
-        // TODO: Validate not working, fix it
-        $validator = (new LoginService())->execute(
+        $auth = (new LoginService())->execute(
             new LoginDTO(
                 email: $this->form->email,
+                password: $this->form->password,
                 remember: $this->form->remember,
             )
         );
 
-        $this->withValidator($validator)->validate();
+        $this->withValidator(fn (Validator $validator) =>
+            $validator->after(function ($validator) use ($auth) {
+                if (!$auth) {
+                    $validator->errors()->add('user', 'Usuário ou senha inválido');
+                }
+            })
+        )->validate();
         $this->redirect(route('home'));
     }
 

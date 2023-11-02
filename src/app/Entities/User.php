@@ -4,11 +4,28 @@ namespace App\Entities;
 
 use App\Illuminate\Custom\Database\Eloquent\Concerns\HasUuid;
 use App\Illuminate\Custom\Database\Eloquent\Factories\HasFactory;
+use DateTime;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+/**
+ * @property int $id
+ * @property string $uuid
+ * @property bool $deleted
+ * @property DateTime $created_at
+ * @property DateTime $updated_at
+ * @property string $first_name
+ * @property string $last_name
+ * @property string $email
+ * @property ?string $cpf
+ * @property ?DateTime $birth_date
+ * @property ?DateTime $email_verified_at
+ * @property bool $email_verified
+ * @property ?string $picture_link
+ * @property bool $has_password
+ */
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable, HasUuid;

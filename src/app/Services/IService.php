@@ -2,9 +2,9 @@
 
 namespace App\Services;
 
-use App\Dto\IDto;
+use App\Dto\IDTO;
 
 interface IService
 {
-    public function execute(?IDto $data);
+    public function execute(?IDTO $data);
 }
