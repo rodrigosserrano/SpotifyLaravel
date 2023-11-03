@@ -33,7 +33,7 @@
                         </div>
                     </li>
                     <hr>
-                    <li><a class="dropdown-item" href="#">Conta</a></li>
+                    <li><a class="dropdown-item" href="{{ route('account') }}">Conta</a></li>
                     <li><a class="dropdown-item" href="{{ route('logout') }}">Sair</a></li>
                 </ul>
             </li>
