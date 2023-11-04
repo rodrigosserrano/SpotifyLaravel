@@ -9,7 +9,7 @@
         </div>
 
         <div class="col-md-6">
-            <h1 class="text-white">{{ $user->first_name }} {{ $user->last_name }}</h1>
+            <h1 class="text-white">{{ $user->fullName }}</h1>
             <h6 class="text-white fw-bold">{{ $user->prettyCpfOrCnpj ?? 'CPF não cadastrado'}}</h6>
             <h6 class="text-white fw-bold">{{ $user->prettyBirthDate ?? 'Data de nascimento não cadastrada'}}</h6>
             <livewire:account.user.status-user-tag :status="$user->status"/>

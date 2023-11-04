@@ -21,6 +21,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property DateTime $updated_at
  * @property string $first_name
  * @property string $last_name
+ * @property string $fullName
  * @property string $email
  * @property ?string $cpf
  * @property ?string $prettyCpfOrCnpj
@@ -99,6 +100,13 @@ class User extends Authenticatable
             get: fn ($_, $attr) => (!empty($attr['birth_date']))
                 ? Carbon::parse($attr['birth_date'])->format('d/m/Y')
                 : null
+        );
+    }
+
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn ($_, $attr) => "{$attr['first_name']} {$attr['last_name']}"
         );
     }
 

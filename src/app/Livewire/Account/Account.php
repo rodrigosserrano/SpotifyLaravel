@@ -11,6 +11,13 @@ use Livewire\Component;
 
 class Account extends Component
 {
+    public bool $editProfileVar = false;
+
+    public function editProfile(): void
+    {
+        $this->editProfileVar = !$this->editProfileVar;
+    }
+
     public function render(): View|Application|Factory|ApplicationContract
     {
         return view('livewire.account.account', ['user' => Auth::user()]);
