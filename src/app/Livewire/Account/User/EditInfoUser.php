@@ -8,7 +8,6 @@ use Illuminate\Contracts\Foundation\Application as ApplicationContract;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
-use Livewire\Attributes\On;
 use Livewire\Component;
 
 class EditInfoUser extends Component

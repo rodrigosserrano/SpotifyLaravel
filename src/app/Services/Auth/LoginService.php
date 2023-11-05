@@ -8,7 +8,7 @@ use App\Entities\User;
 use App\Services\IService;
 use Illuminate\Support\Facades\Auth;
 
-class LoginService implements IService
+final class LoginService implements IService
 {
     /**
      * @param ?LoginDTO $data

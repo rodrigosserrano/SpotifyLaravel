@@ -6,6 +6,7 @@ use App\Dto\IDTO;
 use App\Dto\User\EditUserDTO;
 use App\Entities\User;
 use App\Events\UserUpdated;
+use App\Facades\Repository;
 use App\Services\IService;
 use Carbon\Carbon;
 use Exception;
@@ -13,7 +14,6 @@ use Illuminate\Support\Facades\Log;
 
 final class EditUserService implements IService
 {
-
     /**
      * @param EditUserDTO|null $data
      * @throws Exception
@@ -21,12 +21,9 @@ final class EditUserService implements IService
     public function execute(?IDTO $data): bool
     {
         try {
-            User::find(auth()->user()->id)->update([
-                'cpf' => $data->cpf,
-                'birth_date' => Carbon::make($data->birth_date),
-            ]);
+            Repository::users()->updateAuthenticated($data);
 
-            event(new UserUpdated(User::find(auth()->user()->id)));
+            event(new UserUpdated(auth()->user()));
 
             return true;
         } catch (Exception $e) {

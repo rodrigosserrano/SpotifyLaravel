@@ -4,6 +4,7 @@ namespace App\Livewire\Forms\Account\User;
 
 use App\Dto\User\EditUserDTO;
 use App\Services\User\EditUserService;
+use Exception;
 use Livewire\Attributes\Rule;
 use Livewire\Form;
 
@@ -16,7 +17,7 @@ class EditInfoUserForm extends Form
     public string $birth_date = '';
 
     /**
-     * @throws \Exception
+     * @throws Exception
      */
     public function saveChanges(): void
     {

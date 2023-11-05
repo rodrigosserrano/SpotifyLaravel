@@ -5,6 +5,7 @@ namespace App\Models\User\LoginSocialite;
 use App\Entities\ConnectedAccount;
 use App\Entities\User;
 use App\Enums\ProviderSocialiteEnum;
+use App\Facades\Repository;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -16,26 +17,20 @@ class CreateWithSocialite implements IUser
     public function login(SocialiteUser $user): void
     {
         try {
-            $connectedAccount = ConnectedAccount::create([
-                'provider_id' => $user->getId(),
-                'provider' => ProviderSocialiteEnum::Google->value,
-            ]);
+            Log::info('Creating user with socialite strategy');
+            $connectedAccount = Repository::connectedAccounts()->create(
+                providerId: $user->getId(),
+                providerName: ProviderSocialiteEnum::Google,
+            );
 
-            $firstName = explode(' ', $user->getName())[0] ?? null;
-            $lastName = explode(' ', $user->getName())[1] ?? null;
-
-            $newUser = User::create([
-                'first_name' => $firstName,
-                'last_name' => $lastName,
-                'email' => $user->getEmail(),
-                'picture_link' => $user->getAvatar(),
-                'password' => Hash::make(''),
-                'has_password' => false,
-                'connected_account_id' => $connectedAccount->id,
-            ]);
-
-            $newUser->save();
-
+            $newUser = Repository::users()->create(
+                firstName: explode(' ', $user->getName())[0] ?? null,
+                lastName: explode(' ', $user->getName())[1] ?? null,
+                email: $user->getEmail(),
+                connectedAccount: $connectedAccount,
+                pictureLink: $user->getAvatar(),
+            );
+            Log::info('User created with socialite strategy');
             Auth::login($newUser);
         } catch (Exception $e) {
             Log::error('Error creating user with socialite strategy: ' . $e->getMessage());

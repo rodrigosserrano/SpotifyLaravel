@@ -2,6 +2,9 @@
 
 namespace App\Livewire\Forms\Login;
 
+use App\Dto\Login\LoginDTO;
+use App\Services\Auth\LoginService;
+use Illuminate\Validation\Validator;
 use Livewire\Attributes\Rule;
 use Livewire\Form;
 
@@ -14,4 +17,18 @@ class LoginForm extends Form
     public string $password = '';
 
     public bool $remember = false;
+
+    /**
+     * @throws \Exception
+     */
+    public function auth(): bool
+    {
+        return (new LoginService())->execute(
+            new LoginDTO(
+                email: $this->email,
+                password: $this->password,
+                remember: $this->remember,
+            )
+        );
+    }
 }

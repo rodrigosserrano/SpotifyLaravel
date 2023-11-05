@@ -41,7 +41,6 @@
                 @error('form.birth_date') <span class="error text-white">{{ $message }}</span> @enderror
             </div>
 
-
             <button type="submit" class="w-100 btn button-smc fw-bold">Salvar</button>
         </form>
     </div>
