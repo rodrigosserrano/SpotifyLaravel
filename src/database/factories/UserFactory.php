@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Entities\ConnectedAccount;
 use App\Entities\UserStatus;
+use App\Enums\UserStatusEnum;
 use App\Illuminate\Custom\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -32,7 +33,7 @@ class UserFactory extends Factory
             'password' => Hash::make(''),
             'has_password' => false,
             'connected_account_id' => ConnectedAccount::factory(),
-            'user_status_id' => UserStatus::factory(),
+            'user_status_id' => fake()->randomElement(array_column(UserStatusEnum::cases(), 'value')),
             'remember_token' => Str::random(10),
         ];
     }

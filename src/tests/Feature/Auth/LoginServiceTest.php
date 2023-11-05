@@ -2,12 +2,13 @@
 namespace Tests\Feature;
 
 use App\Entities\User;
+use App\Enums\UserStatusEnum;
 use App\Livewire\Login\Login;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 
 uses()->group('livewire', 'manual-login')->beforeEach(fn () =>
-    $this->user = User::factory()->createOne(['password' => Hash::make($this->password = '1234567890123'), 'has_password' => true])
+    $this->user = User::factory()->createOne(['user_status_id' => UserStatusEnum::Complete->value, 'password' => Hash::make($this->password = '1234567890123'), 'has_password' => true])
 );
 
 test('Login manual successful', function (): void
