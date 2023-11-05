@@ -13,8 +13,8 @@ class ConnectedAccount extends Model
     use HasFactory, HasUuid;
 
     protected $fillable = [
-        'uuid',
-        'google_id',
+        'provider',
+        'provider_id',
     ];
 
     public function user()

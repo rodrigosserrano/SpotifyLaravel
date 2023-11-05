@@ -1,23 +1,24 @@
 <?php
 
-namespace App\Models\User;
+namespace App\Models\User\LoginSocialite;
 
 use App\Entities\ConnectedAccount;
-
 use App\Entities\User;
+use App\Enums\ProviderSocialiteEnum;
 use Exception;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Str;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 
-class CreateWithSocialiteStrategy implements IUserStrategy
+class CreateWithSocialite implements IUser
 {
-    public function execute(SocialiteUser $user): User
+    public function login(SocialiteUser $user): void
     {
         try {
             $connectedAccount = ConnectedAccount::create([
-                'google_id' => $user->getId(),
+                'provider_id' => $user->getId(),
+                'provider' => ProviderSocialiteEnum::Google->value,
             ]);
 
             $firstName = explode(' ', $user->getName())[0] ?? null;
@@ -35,7 +36,7 @@ class CreateWithSocialiteStrategy implements IUserStrategy
 
             $newUser->save();
 
-            return $newUser;
+            Auth::login($newUser);
         } catch (Exception $e) {
             Log::error('Error creating user with socialite strategy: ' . $e->getMessage());
             throw $e;

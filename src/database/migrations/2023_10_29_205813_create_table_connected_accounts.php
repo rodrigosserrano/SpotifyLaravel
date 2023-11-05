@@ -16,7 +16,8 @@ return new class extends Migration
             $table->uuid()->index();
             $table->boolean('deleted')->default(false);
             $table->timestamps();
-            $table->text('google_id');
+            $table->text('provider');
+            $table->text('provider_id');
         });
     }
 
