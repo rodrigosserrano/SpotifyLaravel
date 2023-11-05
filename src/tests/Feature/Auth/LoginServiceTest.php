@@ -6,7 +6,7 @@ use App\Livewire\Login\Login;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 
-uses()->group('livewire')->beforeEach(fn () =>
+uses()->group('livewire', 'manual-login')->beforeEach(fn () =>
     $this->user = User::factory()->createOne(['password' => Hash::make($this->password = '1234567890123'), 'has_password' => true])
 );
 

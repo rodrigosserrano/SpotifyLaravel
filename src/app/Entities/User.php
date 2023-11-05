@@ -111,7 +111,14 @@ class User extends Authenticatable
     public function fullName(): Attribute
     {
         return Attribute::make(
-            get: fn ($_, $attr) => "{$attr['first_name']} {$attr['last_name']}"
+            get: fn ($_, $attr) =>
+            (!empty($attr['first_name'])
+                ? $attr['first_name']
+                : null)
+            ." ".
+            (!empty($attr['last_name'])
+                ? $attr['last_name']
+                : null)
         );
     }
 
