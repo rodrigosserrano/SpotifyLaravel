@@ -1,17 +1,17 @@
 <form wire:submit="submitFormLogin()" class="d-flex justify-content-center">
     <div class="w-50">
         @if($errors->has('user'))
-        <div class="bg-danger p-2 mb-4">
-            <img class="m-2" src="{{ asset('assets/img/warn-icon.svg') }}" width="20px">
-            <span class="text-white">{{ $errors->first('user') }}</span>
-        </div>
+            <div class="bg-danger p-2 mb-4">
+                <img class="m-2" src="{{ asset('assets/img/warn-icon.svg') }}" width="20px">
+                <span class="text-white">{{ $errors->first('user') }}</span>
+            </div>
         @endif
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label fw-bold text-white">Email</label>
             <input
                 wire:model.live="form.email"
                 type="email"
-                class="form-control input-sptf"
+                class="form-control input-smc"
                 placeholder="Email"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
@@ -26,7 +26,7 @@
                 wire:model.live="form.password"
                 type="password"
                 placeholder="Senha"
-                class="form-control input-sptf"
+                class="form-control input-smc"
                 id="exampleInputPassword1"
             >
         </div>
@@ -35,14 +35,14 @@
         </div>
 
         <div class="form-check form-switch mt-4 mb-4">
-            <input wire:model.live="form.remember" class="form-check-input check-sptf" type="checkbox" id="flexSwitchCheckChecked" checked>
+            <input wire:model.live="form.remember" class="form-check-input check-smc" type="checkbox" id="flexSwitchCheckChecked" checked>
             <label class="form-check-label text-white" for="flexSwitchCheckChecked">Lembrar de mim</label>
         </div>
 
-        <button type="submit" class="w-100 btn btn-primary button-sptf fw-bold">Entrar</button>
+        <button type="submit" class="w-100 btn btn-primary button-smc fw-bold">Entrar</button>
 
         <div class="w-100 text-center mt-5">
-            <a href="#" class="text-white sptf-effect-text">Esqueceu sua senha?</a>
+            <a href="#" class="text-white smc-effect-text">Esqueceu sua senha?</a>
         </div>
     </div>
 </form>

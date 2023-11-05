@@ -2,8 +2,8 @@
 
 namespace App\Livewire\Login;
 
-use App\Dto\LoginDTO;
-use App\Livewire\Forms\LoginForm;
+use App\Dto\Login\LoginDTO;
+use App\Livewire\Forms\Login\LoginForm;
 use App\Services\Auth\LoginService;
 use Illuminate\Contracts\Foundation\Application as ApplicationContract;
 use Illuminate\Contracts\View\Factory;

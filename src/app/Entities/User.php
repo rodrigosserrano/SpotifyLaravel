@@ -2,6 +2,7 @@
 
 namespace App\Entities;
 
+use App\Events\UserUpdated;
 use App\Illuminate\Custom\Database\Eloquent\Concerns\HasUuid;
 use App\Illuminate\Custom\Database\Eloquent\Factories\HasFactory;
 use Carbon\Carbon;
@@ -31,6 +32,8 @@ use Laravel\Sanctum\HasApiTokens;
  * @property bool $email_verified
  * @property ?string $picture_link
  * @property bool $has_password
+ * @property int $connected_account_id
+ * @property int $user_status_id
  */
 class User extends Authenticatable
 {
@@ -51,6 +54,8 @@ class User extends Authenticatable
         'email_verified_at',
         'has_password',
         'connected_account_id',
+        'cpf',
+        'birth_date',
     ];
 
     /**

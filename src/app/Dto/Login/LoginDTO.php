@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Dto;
+namespace App\Dto\Login;
+
+use App\Dto\IDTO;
 
 readonly class LoginDTO implements IDTO
 {

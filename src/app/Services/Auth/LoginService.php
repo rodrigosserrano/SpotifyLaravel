@@ -3,12 +3,10 @@
 namespace App\Services\Auth;
 
 use App\Dto\IDTO;
-use App\Dto\LoginDTO;
+use App\Dto\Login\LoginDTO;
 use App\Entities\User;
-use App\Facades\Repository;
 use App\Services\IService;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Validator;
 
 class LoginService implements IService
 {
