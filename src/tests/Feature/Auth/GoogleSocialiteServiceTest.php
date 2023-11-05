@@ -18,5 +18,5 @@ test('Login with Google Socialite', function () {
 
     Socialite::shouldReceive('driver->user')->andReturn($abstractUser);
 
-    $this->get('/oauth/google/callback')->assertRedirect('/');
+    $this->get('/oauth/google/callback')->assertRedirect('/account');
 });
