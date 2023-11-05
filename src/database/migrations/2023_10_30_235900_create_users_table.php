@@ -25,7 +25,7 @@ return new class extends Migration
             $table->date('birth_date')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->boolean('email_verified')->default(false);
-            $table->text('picture_link')->nullable();
+            $table->text('picture_link')->default('https://icon-library.com/images/default-user-icon/default-user-icon-20.jpg')->nullable();
             $table->string('password');
             $table->boolean('has_password')->default(true);
 

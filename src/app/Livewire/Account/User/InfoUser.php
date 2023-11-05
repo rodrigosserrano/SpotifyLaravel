@@ -1,19 +1,25 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Account\User;
 
-use App\Livewire\Forms\LoginForm;
+use App\Entities\User;
 use Illuminate\Contracts\Foundation\Application as ApplicationContract;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
-class Login extends Component
+class InfoUser extends Component
 {
+    public User $user;
+
+    public function mount(User $user): void
+    {
+        $this->user = $user;
+    }
+
     public function render(): View|Application|Factory|ApplicationContract
     {
-        return view('livewire.login.login');
+        return view('livewire.account.user.info-user');
     }
 }

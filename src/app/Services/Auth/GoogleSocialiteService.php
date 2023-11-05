@@ -11,7 +11,7 @@ use Exception;
 use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Facades\Socialite;
 
-class GoogleSocialiteService implements IService
+final class GoogleSocialiteService implements IService
 {
     public function execute(?IDTO $data = null): bool
     {

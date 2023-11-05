@@ -1,32 +1,26 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Login;
 
-use App\Dto\LoginDTO;
-use App\Livewire\Forms\LoginForm;
-use App\Services\Auth\LoginService;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Validator;
-use Livewire\Component;
+use App\Livewire\Forms\Login\LoginForm;
 use Illuminate\Contracts\Foundation\Application as ApplicationContract;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Validation\Validator;
+use Livewire\Component;
 
-class LoginComponent extends Component
+class Login extends Component
 {
     public LoginForm $form;
+
+    /**
+     * @throws \Exception
+     */
     public function submitFormLogin(): void
     {
         $this->validate();
-        $auth = (new LoginService())->execute(
-            new LoginDTO(
-                email: $this->form->email,
-                password: $this->form->password,
-                remember: $this->form->remember,
-            )
-        );
-
+        $auth = $this->form->auth();
         $this->withValidator(fn (Validator $validator) =>
             $validator->after(function ($validator) use ($auth) {
                 if (!$auth) {
@@ -34,11 +28,11 @@ class LoginComponent extends Component
                 }
             })
         )->validate();
-        $this->redirect(route('home'));
+        $this->redirect(route('account'));
     }
 
     public function render(): View|Application|Factory|ApplicationContract
     {
-        return view('livewire.login.login-component');
+        return view('livewire.login.login');
     }
 }

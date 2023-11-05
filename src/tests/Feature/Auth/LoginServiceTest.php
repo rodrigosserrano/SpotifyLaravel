@@ -2,17 +2,17 @@
 namespace Tests\Feature;
 
 use App\Entities\User;
-use App\Livewire\LoginComponent;
+use App\Livewire\Login\Login;
 use Illuminate\Support\Facades\Hash;
 use Livewire\Livewire;
 
-uses()->group('livewire')->beforeEach(fn () =>
+uses()->group('livewire', 'manual-login')->beforeEach(fn () =>
     $this->user = User::factory()->createOne(['password' => Hash::make($this->password = '1234567890123'), 'has_password' => true])
 );
 
 test('Login manual successful', function (): void
 {
-    Livewire::test(LoginComponent::class)
+    Livewire::test(Login::class)
         ->set('form.email', $this->user->email)
         ->set('form.password', $this->password)
         ->call('submitFormLogin')
@@ -21,7 +21,7 @@ test('Login manual successful', function (): void
 
 test('Login manual failed', function (string $email, string $password): void
 {
-    Livewire::test(LoginComponent::class)
+    Livewire::test(Login::class)
         ->set('form.email', $email)
         ->set('form.password', $password)
         ->call('submitFormLogin')

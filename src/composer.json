@@ -12,6 +12,7 @@
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.9",
         "laravel/tinker": "^2.8",
+        "laravellegends/pt-br-validator": "^10.0",
         "livewire/livewire": "^3.0",
         "predis/predis": "^2.2"
     },
@@ -19,6 +20,7 @@
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
+        "lucascudo/laravel-pt-br-localization": "^2.0",
         "mockery/mockery": "^1.4.4",
         "nunomaduro/collision": "^7.0",
         "pestphp/pest": "^2.18",
