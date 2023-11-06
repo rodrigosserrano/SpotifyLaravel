@@ -7,4 +7,9 @@
     <hr class="d-flex m-auto m-lg-5">
 
     <x-register.form-register/>
+    <hr class="d-flex m-auto m-lg-5">
+
+    <div class="w-100 text-center mt-5">
+        <p class="d-inline" style="color: #bababa">Já tem uma conta? </p><a href="{{ route('login') }}" class="text-white smc-effect-text" wire:navigate>Entre agora mesmo</a>
+    </div>
 </div>
