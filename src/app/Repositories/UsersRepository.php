@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Dto\User\EditUserDTO;
-use App\Entities\ConnectedAccount;
+use App\Dto\User\RegisterUserDTO;
 use App\Entities\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -25,23 +25,18 @@ final class UsersRepository
         return User::find(auth()->user()->id)->update($data->toArray());
     }
 
-    public function create(
-        string $firstName,
-        string $lastName,
-        string $email,
-        ConnectedAccount $connectedAccount,
-        ?string $pictureLink = null,
-        ?string $password = null
-    ): User
+    public function create(RegisterUserDTO $data): User
     {
         $user = User::create([
-            'first_name' => $firstName,
-            'last_name' => $lastName,
-            'email' => $email,
-            'picture_link' => $pictureLink,
-            'password' => Hash::make($password),
-            'has_password' => !empty($password),
-            'connected_account_id' => $connectedAccount->id,
+            'first_name' => $data->first_name,
+            'last_name' => $data->last_name,
+            'email' => $data->email,
+            'picture_link' => $data->picture_link,
+            'password' => $data->password,
+            'has_password' => !empty($data->password),
+            'connected_account_id' => $data?->connectedAccount?->id,
+            'cpf' => $data?->cpf,
+            'birth_date' => $data?->birth_date,
         ]);
 
         $user->save();

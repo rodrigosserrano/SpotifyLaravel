@@ -3,6 +3,7 @@
 namespace App\Dto\User;
 
 use App\Dto\IDTO;
+use App\Exceptions\DtoInvalidDataException;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -21,7 +22,7 @@ readonly class EditUserDTO implements IDTO
         ]);
 
         if ($validate->fails()) {
-            throw new \Exception($validate->errors()->first());
+            throw new DtoInvalidDataException(dtoInfoError: $validate->errors()->first());
         }
     }
 

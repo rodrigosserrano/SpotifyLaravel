@@ -2,7 +2,7 @@
 
 namespace App\Livewire\Forms\Login;
 
-use App\Dto\Login\LoginDTO;
+use App\Dto\Auth\LoginDTO;
 use App\Services\Auth\LoginService;
 use Illuminate\Validation\Validator;
 use Livewire\Attributes\Rule;

@@ -19,7 +19,6 @@
                 id="exampleInputCpf1"
                 aria-describedby="cpfHelp"
                 maxlength="11"
-                value="{{ $user?->prettyCpfOrCnpj }}"
             >
             <div id="cpfHelp" class="form-text">
                 @error('form.cpf') <span class="error text-white">{{ $message }}</span> @enderror
@@ -35,7 +34,6 @@
                 placeholder="Data de nascimento"
                 id="exampleInputNascimento1"
                 aria-describedby="dataHelp"
-                value="{{ $user?->prettyBirthDate }}"
             >
             <div id="dataHelp" class="form-text">
                 @error('form.birth_date') <span class="error text-white">{{ $message }}</span> @enderror

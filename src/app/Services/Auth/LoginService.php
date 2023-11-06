@@ -3,7 +3,7 @@
 namespace App\Services\Auth;
 
 use App\Dto\IDTO;
-use App\Dto\Login\LoginDTO;
+use App\Dto\Auth\LoginDTO;
 use App\Entities\User;
 use App\Services\IService;
 use Illuminate\Support\Facades\Auth;
