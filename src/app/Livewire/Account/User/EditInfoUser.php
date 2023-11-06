@@ -18,8 +18,8 @@ class EditInfoUser extends Component
     public function mount(User $user): void
     {
         $this->user = $user;
-        $this->form->cpf = $user?->cpf;
-        $this->form->birth_date = $user?->birth_date;
+        $this->form->cpf = $user?->cpf ?? '';
+        $this->form->birth_date = $user?->birth_date ?? '';
     }
 
     /**
