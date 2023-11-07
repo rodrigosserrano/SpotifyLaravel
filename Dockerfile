@@ -12,7 +12,8 @@ ADD ./src/ /var/www/html
 RUN apk add --no-cache \
     libpq-dev \
     oniguruma-dev \
-    && docker-php-ext-install pdo pdo_pgsql mbstring
+    && docker-php-ext-configure pcntl --enable-pcntl \
+    && docker-php-ext-install pdo pdo_pgsql mbstring pcntl
 
 RUN chown -R laravel:laravel /var/www/html
 

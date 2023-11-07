@@ -42,6 +42,13 @@ Run migrations
 docker compose run --rm php artisan migrate
 ```
 
+To execute queues, use horizon
+```bash
+docker compose run --rm php artisan horizon
+```
+
+For see dashboard horizon, access `http://YOUR_HOST/horizon`
+
 If you want a alternative host, edit `nginx/conf.d/app.conf` 
 
 <i>don't forget edit your `hosts`</i>
