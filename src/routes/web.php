@@ -19,7 +19,6 @@ use Laravel\Socialite\Facades\Socialite;
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/account', Account::class)->name('account');
-    Route::get('/connected-accounts', fn () => 'oi')->name('connected-accounts');
     Route::get('/logout', function () {
         Auth::logout();
         return redirect()->route('home');
