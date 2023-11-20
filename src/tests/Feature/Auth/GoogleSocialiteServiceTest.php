@@ -4,7 +4,10 @@ namespace Tests\Feature;
 
 use Laravel\Socialite\Facades\Socialite;
 
-test('Login with Google Socialite', function () {
+uses()->group('auth', 'socialite');
+
+test('Login with Google Socialite', function (): void
+{
     $abstractUser = \Mockery::mock('Laravel\Socialite\Two\User');
     $abstractUser
         ->shouldReceive('getId')

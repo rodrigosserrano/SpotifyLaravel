@@ -7,6 +7,6 @@
                  width="130rem"
             >
         </div>
-        <x-account.user.form-edit-user-info/>
+        <x-account.user.form-edit-user-info :user="$user"/>
     </div>
 </div>
