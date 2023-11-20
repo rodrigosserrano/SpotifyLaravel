@@ -24,7 +24,7 @@ class Login extends Component
         $this->withValidator(fn (Validator $validator) =>
             $validator->after(function ($validator) use ($auth) {
                 if (!$auth) {
-                    $validator->errors()->add('user', 'Usuário ou senha inválido');
+                    $validator->errors()->add('login-user', 'Usuário ou senha inválido');
                 }
             })
         )->validate();

@@ -11,7 +11,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class UserUpdated implements UserEvent
+class UserCreated implements UserEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 

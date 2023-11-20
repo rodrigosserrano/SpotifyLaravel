@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\GoogleController;
-use App\Livewire\{Account\Account, Home, Login\Login};
+use App\Livewire\{Account\Account, Home, Login\Login, Register\RegisterUser};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Laravel\Socialite\Facades\Socialite;
@@ -27,8 +27,9 @@ Route::middleware(['auth'])->group(function () {
 
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', Login::class)->name('login');
-    Route::get('oauth/google', fn () => Socialite::driver('google')->redirect());
-    Route::get('oauth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+    Route::get('/oauth/google', fn () => Socialite::driver('google')->redirect())->name('socialite.google');
+    Route::get('/oauth/google/callback', [GoogleController::class, 'handleGoogleCallback']);
+    Route::get('/register', RegisterUser::class)->name('register');
 });
 
 Route::get('/', Home::class)->name('home');

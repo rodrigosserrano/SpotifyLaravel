@@ -2,6 +2,7 @@
 
 namespace App\Models\User\LoginSocialite;
 
+use App\Dto\User\RegisterUserDTO;
 use App\Entities\ConnectedAccount;
 use App\Entities\User;
 use App\Enums\ProviderSocialiteEnum;
@@ -23,12 +24,13 @@ class CreateWithSocialite implements IUser
                 providerName: ProviderSocialiteEnum::Google,
             );
 
-            $newUser = Repository::users()->create(
-                firstName: explode(' ', $user->getName())[0] ?? null,
-                lastName: explode(' ', $user->getName())[1] ?? null,
+            $newUser = Repository::users()->create(new RegisterUserDTO(
+                first_name: explode(' ', $user->getName())[0] ?? null,
+                last_name: explode(' ', $user->getName())[1] ?? null,
                 email: $user->getEmail(),
+                picture_link: $user->getAvatar(),
                 connectedAccount: $connectedAccount,
-                pictureLink: $user->getAvatar(),
+                )
             );
             Log::info('User created with socialite strategy');
             Auth::login($newUser);
