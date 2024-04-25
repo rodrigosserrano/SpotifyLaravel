@@ -2,16 +2,14 @@
 
 namespace App\Models\User\LoginSocialite;
 
+use App\Models\User\LoginSocialite\Strategies\ILoginSocialite;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 
-final class User
+final class Context
 {
-    private IUser $strategy;
-
-    public function setStrategy(IUser $strategy): void
-    {
-        $this->strategy = $strategy;
-    }
+    public function __construct(
+        private readonly ILoginSocialite $strategy
+    ) {}
 
     public function login(SocialiteUser $user): void
     {

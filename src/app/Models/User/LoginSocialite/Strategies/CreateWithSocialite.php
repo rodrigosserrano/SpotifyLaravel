@@ -1,19 +1,16 @@
 <?php
 
-namespace App\Models\User\LoginSocialite;
+namespace App\Models\User\LoginSocialite\Strategies;
 
 use App\Dto\User\RegisterUserDTO;
-use App\Entities\ConnectedAccount;
-use App\Entities\User;
 use App\Enums\ProviderSocialiteEnum;
 use App\Facades\Repository;
 use Exception;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 
-class CreateWithSocialite implements IUser
+class CreateWithSocialite implements ILoginSocialite
 {
     public function login(SocialiteUser $user): void
     {

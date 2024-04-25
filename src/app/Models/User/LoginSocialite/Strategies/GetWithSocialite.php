@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Models\User\LoginSocialite;
+namespace App\Models\User\LoginSocialite\Strategies;
 
 use App\Facades\Repository;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Contracts\User as SocialiteUser;
 
-class GetWithSocialite implements IUser
+class GetWithSocialite implements ILoginSocialite
 {
     public function login(SocialiteUser $user): void
     {

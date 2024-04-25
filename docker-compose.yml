@@ -1,8 +1,8 @@
 version: "3.9"
 
 networks:
-  laravel:
-    name: laravel
+  network-local:
+    name: network-local
 
 services:
   nginx:
@@ -19,7 +19,7 @@ services:
     links:
       - php
     networks:
-      - laravel
+      - network-local
 
   php:
     build:
@@ -32,7 +32,7 @@ services:
     volumes:
       - ./src:/var/www/html
     networks:
-      - laravel
+      - network-local
 
   redis:
     image: redis:latest
@@ -40,11 +40,11 @@ services:
     ports:
       - '${REDIS_PORT}:6379'
     networks:
-      - laravel
+      - network-local
 
   postgres:
     image: postgres:15
-    container_name: postgres
+    container_name: pgsql
     ports:
       - "${POSTGRES_PORT}:5432"
     environment:
@@ -52,7 +52,7 @@ services:
         - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
         - POSTGRES_DB=${POSTGRES_DB}
     networks:
-      - laravel
+      - network-local
 
   composer:
     image: composer:latest
@@ -61,7 +61,7 @@ services:
       - ./src:/var/www/html
     working_dir: /var/www/html
     networks:
-      - laravel
+      - network-local
 
   npm:
     image: node:lts-alpine
@@ -75,4 +75,4 @@ services:
     expose:
       - "5173"
     networks:
-      - laravel
+      - network-local
